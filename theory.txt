@@ -1,0 +1,40 @@
+A trading system does exactly 3 things
+- Accept orders
+- Match orders
+- Publish results
+
+(everythig else is basically optimizations)
+
+Instrument - (a tradable entity)
+Order - (buy, sell)
+
+Bid - Highest price buyers willing to sell
+Ask - Lowest price sellers willing to sell
+
+Trade - when a buy meets a sell
+
+Trade { 
+ price
+ quantity
+ buyerid
+ sellerid
+}
+
+Orderbook* - stores unmatched orders
+BUY side (Bids)        SELL side (Asks)
+----------------      ----------------
+Price  Qty            Price  Qty
+100    50             101    30
+99     40             102    70
+
+Bids sorted desc
+Asks sorted asc
+
+Algo - Orders are matched using a price–time priority algorithm, where incoming orders are continuously matched against the best opposing prices until fully filled or no longer price-compatible.
+
+
+
+
+
+
+
