@@ -106,4 +106,45 @@ public:
         if (asks.empty()) return nullptr;
         return asks.begin()->second.head;
     }
+    void print() const {
+        std::cout << "\tOrder Book State:\n";
+        
+        // 1. Print ASKS (Sellers)
+        // Asks map is sorted Low -> High. 
+        if (asks.empty()) {
+            std::cout << "\t  Asks: [Empty]\n";
+        } else {
+             std::cout << "\t  Asks:\n";
+             // Iterate backwards (rbegin) to show highest price at top (Visual preference)
+             for (auto it = asks.rbegin(); it != asks.rend(); ++it) {
+                 std::cout << "\t    Price " << it->first << ": ";
+                 Order* curr = it->second.head;
+                 while(curr) {
+                     std::cout << "[#" << curr->id << " Qty:" << curr->quantity << "] ";
+                     curr = curr->next;
+                 }
+                 std::cout << "\n";
+             }
+        }
+
+        std::cout << "\t  -----------------\n";
+
+        // 2. Print BIDS (Buyers)
+        // Bids map is sorted High -> Low.
+        if (bids.empty()) {
+            std::cout << "\t  Bids: [Empty]\n";
+        } else {
+             std::cout << "\t  Bids:\n";
+             for (const auto& [price, level] : bids) {
+                 std::cout << "\t    Price " << price << ": ";
+                 Order* curr = level.head;
+                 while(curr) {
+                     std::cout << "[#" << curr->id << " Qty:" << curr->quantity << "] ";
+                     curr = curr->next;
+                 }
+                 std::cout << "\n";
+             }
+        }
+        std::cout << "\n";
+    }
 };

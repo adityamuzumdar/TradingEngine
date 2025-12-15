@@ -23,16 +23,3 @@ A high-performance trading engine built in C++.
 - `CMakeLists.txt`: Build configuration
 - `README.md`: This file
 
-## Build Instructions
-
-1. Create a build directory: `mkdir build && cd build`
-2. Run CMake: `cmake ..`
-3. Build: `make`
-
-## Usage
-
-Run the executable from `bin/`.
-
-## Contributing
-
-Add your contributions here.

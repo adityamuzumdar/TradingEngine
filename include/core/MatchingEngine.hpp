@@ -26,6 +26,10 @@ public:
         return trades;
     }
 
+    void print_book() const {
+        order_book.print();
+    }
+
 private:
     void match_buy_order(Order* incoming, std::vector<Trade>& trades) {
         while (incoming->quantity > 0) {
